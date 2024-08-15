@@ -8,9 +8,12 @@ void vertex() {
 }
 
 void fragment() {
-	if (COLOR.r == 76.0/255.0 && COLOR.g == 137.0/255.0 && COLOR.b == 238.0/255.0) {
-		COLOR = vec4(main_color, COLOR.a);
-	} if (COLOR.r == 184.0/255.0 && COLOR.g == 255.0/255.0 && COLOR.b == 240.0/255.0) {
-		COLOR = vec4(face_color, COLOR.a);
-	}
+	float is_red = max(floor(COLOR.r-(COLOR.g+COLOR.b)/2.0),0);
+	float is_blue = max(floor(COLOR.b-(COLOR.r+COLOR.g)/2.0),0);
+	COLOR = vec4(
+		main_color*is_red+
+		face_color*is_blue+
+		COLOR.rgb-vec3(is_red,0,0)-vec3(0,0,is_blue),
+		COLOR.a
+	);
 }
