@@ -6,8 +6,8 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2cl84"]
 shader = ExtResource("2_cfso7")
-shader_parameter/main_color = null
-shader_parameter/face_color = null
+shader_parameter/main_color = Color(0.298039, 0.537255, 0.933333, 1)
+shader_parameter/face_color = Color(0.721569, 1, 0.941176, 1)
 
 [node name="TestScene" type="Node2D"]
 script = ExtResource("1_4qr2l")
