@@ -16,7 +16,7 @@ func _physics_process(delta):
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
-	var input_dir = Input.get_vector("walk_left", "walk_right", "walk_up", "walk_down")
+	var input_dir = Input.get_vector("walk_left", "walk_right", "walk_front", "walk_back")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = direction.x * SPEED

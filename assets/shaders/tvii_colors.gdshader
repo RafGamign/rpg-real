@@ -13,7 +13,7 @@ void fragment() {
 	COLOR = vec4(
 		main_color*is_red+
 		face_color*is_blue+
-		COLOR.rgb-vec3(is_red,0,0)-vec3(0,0,is_blue),
+		COLOR.rgb-vec3(is_red,0,is_blue),
 		COLOR.a
 	);
 }

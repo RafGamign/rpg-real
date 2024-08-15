@@ -26,6 +26,8 @@ offset_right = 948.0
 offset_bottom = 612.0
 color = Color(0.298039, 0.537255, 0.933333, 1)
 edit_alpha = false
+color_modes_visible = false
+presets_visible = false
 
 [node name="ColorPicker2" type="ColorPicker" parent="."]
 offset_left = 15.0
@@ -34,6 +36,8 @@ offset_right = 313.0
 offset_bottom = 612.0
 color = Color(0.721569, 1, 0.941176, 1)
 edit_alpha = false
+color_modes_visible = false
+presets_visible = false
 
 [connection signal="color_changed" from="ColorPicker" to="." method="_main_color_changed"]
 [connection signal="color_changed" from="ColorPicker2" to="." method="_face_color_changed"]
