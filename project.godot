@@ -15,6 +15,11 @@ run/main_scene="res://scenes/node_3d.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=960
+window/size/viewport_height=720
+
 [dotnet]
 
 project/assembly_name="RPG Real"
@@ -59,3 +64,7 @@ move_jump={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":1,"pressure":0.0,"pressed":false,"script":null)
 ]
 }
+
+[physics]
+
+3d/default_gravity=12.5

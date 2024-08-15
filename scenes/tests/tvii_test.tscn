@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://qvqo4w8iq2h3"]
+
+[ext_resource type="Script" path="res://scenes/tests/tvii_test.gd" id="1_4qr2l"]
+[ext_resource type="Shader" path="res://assets/shaders/tvii_colors.gdshader" id="2_cfso7"]
+[ext_resource type="Texture2D" uid="uid://dj6brf5egjgc0" path="res://assets/images/tvii_test.png" id="3_uow4f"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2cl84"]
+shader = ExtResource("2_cfso7")
+shader_parameter/main_color = Vector3(0.298, 0.537, 0.933)
+shader_parameter/face_color = Vector3(0.722, 1, 0.941)
+
+[node name="TestScene" type="Node2D"]
+script = ExtResource("1_4qr2l")
+
+[node name="TviiTest" type="Sprite2D" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_2cl84")
+position = Vector2(474, 322)
+scale = Vector2(1.46168, 1.40411)
+texture = ExtResource("3_uow4f")
+
+[node name="ColorPicker" type="ColorPicker" parent="."]
+offset_left = 650.0
+offset_top = 71.0
+offset_right = 948.0
+offset_bottom = 612.0
+color = Color(0.298039, 0.537255, 0.933333, 1)
+edit_alpha = false
+
+[node name="ColorPicker2" type="ColorPicker" parent="."]
+offset_left = 15.0
+offset_top = 71.0
+offset_right = 313.0
+offset_bottom = 612.0
+color = Color(0.721569, 1, 0.941176, 1)
+edit_alpha = false
+
+[connection signal="color_changed" from="ColorPicker" to="." method="_main_color_changed"]
+[connection signal="color_changed" from="ColorPicker2" to="." method="_face_color_changed"]
