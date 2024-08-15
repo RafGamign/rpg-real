@@ -1,13 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://hsafiqty3r4y"]
+[gd_scene load_steps=8 format=3 uid="uid://hsafiqty3r4y"]
 
-[ext_resource type="Texture2D" uid="uid://da5h1q21ivt8e" path="res://icon.svg" id="1_q5x3h"]
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_y24bt"]
+[ext_resource type="Shader" path="res://assets/shaders/tvii_colors.gdshader" id="2_0c6ep"]
+[ext_resource type="Texture2D" uid="uid://dj6brf5egjgc0" path="res://assets/images/tvii_test.png" id="3_17a1d"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_wh6pb"]
+viewport_path = NodePath("Sprite/SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aijje"]
+shader = ExtResource("2_0c6ep")
+shader_parameter/main_color = Color(0.298039, 0.537255, 0.933333, 1)
+shader_parameter/face_color = Color(0.721569, 1, 0.941176, 1)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xrlbd"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_q5x3h")
+"texture": ExtResource("3_17a1d")
 }],
 "loop": true,
 "name": &"default",
@@ -21,10 +30,21 @@ radius = 0.64
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_y24bt")
 
-[node name="Sprite" type="AnimatedSprite3D" parent="."]
-offset = Vector2(0, 64)
+[node name="Sprite" type="Sprite3D" parent="."]
+offset = Vector2(0, 128)
+pixel_size = 0.0075
 billboard = 2
+texture_filter = 0
+texture = SubResource("ViewportTexture_wh6pb")
+
+[node name="SubViewport" type="SubViewport" parent="Sprite"]
+transparent_bg = true
+size = Vector2i(256, 256)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprite/SubViewport"]
+material = SubResource("ShaderMaterial_aijje")
 sprite_frames = SubResource("SpriteFrames_xrlbd")
+centered = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.64, 0)

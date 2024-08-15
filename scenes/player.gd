@@ -19,10 +19,10 @@ func _physics_process(delta):
 	var input_dir = Input.get_vector("walk_left", "walk_right", "walk_front", "walk_back")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
+		velocity.x = lerpf(direction.x * SPEED, velocity.x, 0.16 * 60 * delta)
+		velocity.z = lerpf(direction.z * SPEED, velocity.z, 0.16 * 60 * delta)
 	else:
-		velocity.x = lerpf(velocity.x, direction.x * SPEED, clamp(0.32 * 60 * delta, 0, 1))
-		velocity.z = lerpf(velocity.z, direction.z * SPEED, clamp(0.32 * 60 * delta, 0, 1))
+		velocity.x = lerpf(velocity.x, direction.x * SPEED, 0.24 * 60 * delta)
+		velocity.z = lerpf(velocity.z, direction.z * SPEED, 0.24 * 60 * delta)
 
 	move_and_slide()
