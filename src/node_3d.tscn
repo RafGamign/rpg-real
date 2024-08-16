@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dko0pv6jqvqj"]
+[gd_scene load_steps=8 format=3 uid="uid://dko0pv6jqvqj"]
 
 [ext_resource type="Texture2D" uid="uid://da5h1q21ivt8e" path="res://icon.svg" id="1_l5va5"]
 [ext_resource type="PackedScene" uid="uid://hsafiqty3r4y" path="res://src/player.tscn" id="2_v3ril"]
+[ext_resource type="Script" path="res://src/PlayerCamera.gd" id="3_de6da"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rvi02"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -36,3 +37,8 @@ size = Vector3(10, 1, 10)
 material = SubResource("StandardMaterial3D_ibbu7")
 
 [node name="Player" parent="." instance=ExtResource("2_v3ril")]
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("follow")]
+transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 3, 4)
+script = ExtResource("3_de6da")
+follow = NodePath("../Player")
