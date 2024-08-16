@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://fhw1efoh3bvn"]
+
+[ext_resource type="Texture2D" uid="uid://blir5l67c44wn" path="res://assets/models/tvii/model_0.png" id="1_v0p6u"]
+
+[resource]
+resource_name = "material_0"
+transparency = 2
+alpha_scissor_threshold = 0.05
+alpha_antialiasing_mode = 0
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("1_v0p6u")
+texture_filter = 0
+texture_repeat = false

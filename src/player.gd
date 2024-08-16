@@ -22,3 +22,5 @@ func _physics_process(delta):
 	velocity.z = lerp(velocity.z, direction.z * SPEED, 0.20 * 60 * delta)
 
 	move_and_slide()
+	if velocity.x or velocity.z:
+		$Model.rotation.y = -PI/2.0-Vector2(velocity.x,velocity.z).angle()

@@ -1,14 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://hsafiqty3r4y"]
+[gd_scene load_steps=11 format=3 uid="uid://hsafiqty3r4y"]
 
-[ext_resource type="Script" path="res://src/player.gd" id="1_y24bt"]
-[ext_resource type="Shader" path="res://assets/shaders/tvii_colors.gdshader" id="2_0c6ep"]
-[ext_resource type="Texture2D" uid="uid://dj6brf5egjgc0" path="res://assets/images/tvii_test.png" id="3_17a1d"]
+[ext_resource type="Script" path="res://src/player.gd" id="1_uaem5"]
+[ext_resource type="Shader" path="res://assets/shaders/tvii_colors.gdshader" id="2_lns3y"]
+[ext_resource type="Texture2D" uid="uid://dj6brf5egjgc0" path="res://assets/images/tvii_test.png" id="3_acruy"]
+[ext_resource type="PackedScene" uid="uid://c4ti201brlkxk" path="res://assets/models/tvii/model.gltf" id="4_y0lvj"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_wh6pb"]
 viewport_path = NodePath("Sprite/SubViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aijje"]
-shader = ExtResource("2_0c6ep")
+shader = ExtResource("2_lns3y")
 shader_parameter/main_color = Color(0.298039, 0.537255, 0.933333, 1)
 shader_parameter/face_color = Color(0.721569, 1, 0.941176, 1)
 
@@ -16,7 +17,7 @@ shader_parameter/face_color = Color(0.721569, 1, 0.941176, 1)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_17a1d")
+"texture": ExtResource("3_acruy")
 }],
 "loop": true,
 "name": &"default",
@@ -25,7 +26,6 @@ animations = [{
 
 [sub_resource type="SystemFont" id="SystemFont_0qmqi"]
 font_names = PackedStringArray("Comicoro")
-subpixel_positioning = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_sfx31"]
 font = SubResource("SystemFont_0qmqi")
@@ -37,9 +37,12 @@ height = 1.28
 radius = 0.64
 
 [node name="Player" type="CharacterBody3D"]
-script = ExtResource("1_y24bt")
+script = ExtResource("1_uaem5")
+
+[node name="Model" parent="." instance=ExtResource("4_y0lvj")]
 
 [node name="Sprite" type="Sprite3D" parent="."]
+visible = false
 offset = Vector2(0, 128)
 pixel_size = 0.0075
 billboard = 1

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dko0pv6jqvqj"]
 
-[ext_resource type="PackedScene" uid="uid://hsafiqty3r4y" path="res://src/player.tscn" id="1_ohtpt"]
-[ext_resource type="Texture2D" uid="uid://da5h1q21ivt8e" path="res://icon.svg" id="1_ukcyo"]
+[ext_resource type="Texture2D" uid="uid://da5h1q21ivt8e" path="res://icon.svg" id="1_l5va5"]
+[ext_resource type="PackedScene" uid="uid://hsafiqty3r4y" path="res://src/player.tscn" id="2_v3ril"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rvi02"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -17,7 +17,7 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ibbu7"]
-albedo_texture = ExtResource("1_ukcyo")
+albedo_texture = ExtResource("1_l5va5")
 uv1_triplanar = true
 
 [node name="Node3D" type="Node3D"]
@@ -35,4 +35,4 @@ use_collision = true
 size = Vector3(10, 1, 10)
 material = SubResource("StandardMaterial3D_ibbu7")
 
-[node name="Player" parent="." instance=ExtResource("1_ohtpt")]
+[node name="Player" parent="." instance=ExtResource("2_v3ril")]
