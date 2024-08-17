@@ -8,7 +8,6 @@
 [node name="Label3D" type="Label3D" parent="Node/root/Head/face" index="0"]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0.125, 0.408, -0.251)
 pixel_size = 0.0313
-no_depth_test = true
 texture_filter = 0
 modulate = Color(0.721569, 1, 0.941176, 1)
 text = ":D"
