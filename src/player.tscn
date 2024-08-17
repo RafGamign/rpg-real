@@ -1,37 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://hsafiqty3r4y"]
+[gd_scene load_steps=4 format=3 uid="uid://hsafiqty3r4y"]
 
 [ext_resource type="Script" path="res://src/player.gd" id="1_uaem5"]
-[ext_resource type="PackedScene" uid="uid://bs1uu43clddej" path="res://assets/models/tvii/model_scene.tscn" id="2_lm6ac"]
-[ext_resource type="Shader" path="res://assets/shaders/tvii_colors.gdshader" id="2_lns3y"]
-[ext_resource type="Texture2D" uid="uid://dj6brf5egjgc0" path="res://assets/images/tvii_test.png" id="3_acruy"]
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_wh6pb"]
-viewport_path = NodePath("Sprite/SubViewport")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_aijje"]
-shader = ExtResource("2_lns3y")
-shader_parameter/main_color = Color(0.298039, 0.537255, 0.933333, 1)
-shader_parameter/face_color = Color(0.721569, 1, 0.941176, 1)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_xrlbd"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_acruy")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="SystemFont" id="SystemFont_0qmqi"]
-font_names = PackedStringArray("Comicoro")
-subpixel_positioning = 0
-
-[sub_resource type="LabelSettings" id="LabelSettings_sfx31"]
-font = SubResource("SystemFont_0qmqi")
-font_size = 64
-font_color = Color(0.839216, 1, 0.972549, 1)
+[ext_resource type="PackedScene" uid="uid://baqvfsnylblb2" path="res://assets/models/tvii/model_scene.tscn" id="2_lm6ac"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_fn7dn"]
 height = 1.28
@@ -41,34 +11,6 @@ radius = 0.64
 script = ExtResource("1_uaem5")
 
 [node name="Model" parent="." instance=ExtResource("2_lm6ac")]
-
-[node name="Sprite" type="Sprite3D" parent="."]
-visible = false
-offset = Vector2(0, 128)
-pixel_size = 0.0075
-billboard = 1
-texture_filter = 0
-texture = SubResource("ViewportTexture_wh6pb")
-
-[node name="SubViewport" type="SubViewport" parent="Sprite"]
-transparent_bg = true
-canvas_item_default_texture_filter = 0
-size = Vector2i(256, 256)
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprite/SubViewport"]
-material = SubResource("ShaderMaterial_aijje")
-sprite_frames = SubResource("SpriteFrames_xrlbd")
-centered = false
-
-[node name="Label" type="Label" parent="Sprite/SubViewport"]
-offset_left = 90.0
-offset_top = 55.0
-offset_right = 171.0
-offset_bottom = 165.0
-text = ":D"
-label_settings = SubResource("LabelSettings_sfx31")
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.64, 0)

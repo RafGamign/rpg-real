@@ -1,38 +1,13 @@
-[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://c2m8gw8sxcwxl"]
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bif0yy1guogl4"]
 
-[sub_resource type="Shader" id="Shader_6qp2q"]
-code = "shader_type spatial;
-
-uniform vec3 main_color : source_color;
-
-void vertex() {
-	// Called for every vertex the material is visible on.
-}
-
-void fragment() {
-	// comment
-	ALBEDO = main_color;
-	EMISSION = main_color;
-}
-"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_q0cl8"]
-render_priority = 0
-shader = SubResource("Shader_6qp2q")
-shader_parameter/main_color = null
+[ext_resource type="Texture2D" uid="uid://bf4mjeklwkk33" path="res://assets/models/tvii/head.png" id="1_rtrs5"]
 
 [resource]
 resource_name = "material_2"
-next_pass = SubResource("ShaderMaterial_q0cl8")
 transparency = 2
 alpha_scissor_threshold = 0.05
 alpha_antialiasing_mode = 0
 cull_mode = 2
-shading_mode = 2
-diffuse_mode = 3
-specular_mode = 1
-albedo_color = Color(0.298039, 0.537255, 0.933333, 1)
-emission_enabled = true
-emission = Color(0.298039, 0.537255, 0.933333, 1)
+albedo_texture = ExtResource("1_rtrs5")
 texture_filter = 0
 texture_repeat = false

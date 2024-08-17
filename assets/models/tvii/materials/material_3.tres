@@ -1,16 +1,17 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dlaok64wqds8d"]
 
-[ext_resource type="Texture2D" uid="uid://c6d3yjnlcrcxm" path="res://assets/models/tvii/model_3.png" id="1_jer3b"]
+[ext_resource type="Texture2D" uid="uid://c6w1x0bvlbk1b" path="res://assets/models/tvii/legs.png" id="1_06awc"]
 
 [resource]
 resource_name = "material_3"
 transparency = 2
 alpha_scissor_threshold = 0.05
 alpha_antialiasing_mode = 0
-cull_mode = 2
 shading_mode = 2
 diffuse_mode = 3
 specular_mode = 1
-albedo_texture = ExtResource("1_jer3b")
+albedo_texture = ExtResource("1_06awc")
+metallic = 0.5
+roughness = 0.5
 texture_filter = 0
 texture_repeat = false
