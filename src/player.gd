@@ -24,10 +24,11 @@ func _physics_process(delta):
 
 	move_and_slide()
 	if input_dir:
-		$Model.rotation.y = lerp_angle(
-			$Model.rotation.y,
-			-PI/2.0-input_dir.angle(),
-			0.2 * 60 * delta
-		)
+		look_dir = input_dir
+	$Model.rotation.y = lerp_angle(
+		$Model.rotation.y,
+		-PI/2.0-look_dir.angle(),
+		0.2 * 60 * delta
+	)
 	
 	$Model/AnimationPlayer.play("walk" if Vector2(velocity.x,velocity.z).length() > 0.1 and input_dir else "idle")

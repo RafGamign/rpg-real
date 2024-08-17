@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dko0pv6jqvqj"]
 
-[ext_resource type="Texture2D" uid="uid://da5h1q21ivt8e" path="res://icon.svg" id="1_l5va5"]
+[ext_resource type="Texture2D" uid="uid://dv3r657xggi2v" path="res://assets/images/ground.png" id="1_p7mia"]
 [ext_resource type="PackedScene" uid="uid://hsafiqty3r4y" path="res://src/player.tscn" id="2_v3ril"]
 [ext_resource type="Script" path="res://src/PlayerCamera.gd" id="3_de6da"]
 
@@ -20,8 +20,9 @@ glow_blend_mode = 1
 volumetric_fog_sky_affect = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ibbu7"]
-albedo_texture = ExtResource("1_l5va5")
+albedo_texture = ExtResource("1_p7mia")
 uv1_triplanar = true
+texture_filter = 2
 
 [node name="Node3D" type="Node3D"]
 
