@@ -4,14 +4,9 @@
 
 [resource]
 resource_name = "material_3"
-transparency = 2
-alpha_scissor_threshold = 0.05
-alpha_antialiasing_mode = 0
 shading_mode = 2
 diffuse_mode = 3
 specular_mode = 1
 albedo_texture = ExtResource("1_06awc")
-metallic = 0.5
-roughness = 0.5
 texture_filter = 0
 texture_repeat = false

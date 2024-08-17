@@ -3652,4 +3652,4 @@ _subresources={
 }
 }
 gltf/naming_version=1
-gltf/embedded_image_handling=3
+gltf/embedded_image_handling=2

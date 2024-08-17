@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/face.png-8978bc4b052b464daf4ff7e57e9cdac8.cte
 
 [params]
 
-compress/mode=0
+compress/mode=4
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
