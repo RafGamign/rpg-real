@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody3D
 
 @export var lock_movement:bool = false
@@ -6,6 +7,17 @@ const JUMP_VELOCITY = 4.5
 var look_dir = Vector2.UP
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+
+func _ready() -> void:
+	$Model/Node/root/Head/face.mesh.surface_set_material(0,
+	$Model/Node/root/Head/face.mesh.surface_get_material(0).duplicate())
+	update_colors()
+
+func update_colors() -> void:
+	$Model/Node/root/Head/face.mesh.surface_get_material(0).albedo_color = Color.from_string(Options.config.get_value("PlayerColors", "MainColor"), Color.WHITE)
+	$Model/Node/root/Head/face.mesh.surface_get_material(0).emission = $Model/Node/root/Head/face.mesh.surface_get_material(0).albedo_color
+	$Model/Node/root/Head/face/SpotLight3D.light_color = $Model/Node/root/Head/face.mesh.surface_get_material(0).emission
+	$Model/Node/root/Head/face/Label3D.modulate = Color.from_string(Options.config.get_value("PlayerColors", "FaceColor"), Color.BLACK)
 
 func _physics_process(delta):
 	if not is_on_floor():

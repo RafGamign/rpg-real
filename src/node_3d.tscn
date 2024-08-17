@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dko0pv6jqvqj"]
+[gd_scene load_steps=10 format=3 uid="uid://dko0pv6jqvqj"]
 
 [ext_resource type="Texture2D" uid="uid://dv3r657xggi2v" path="res://assets/images/ground.png" id="1_p7mia"]
 [ext_resource type="PackedScene" uid="uid://hsafiqty3r4y" path="res://src/player.tscn" id="2_v3ril"]
@@ -25,6 +25,21 @@ albedo_texture = ExtResource("1_p7mia")
 uv1_triplanar = true
 texture_filter = 2
 
+[sub_resource type="GDScript" id="GDScript_d1778"]
+resource_name = "open_customize_menu"
+script/source = "extends CSGBox3D
+
+@export var player:Player = null
+
+var menu:Node2D
+func _ready() -> void:
+	menu = load(\"res://src/menus/customize_player_menu.tscn\").instantiate()
+	menu.player = player
+
+func _on_interact_prompt_interact() -> void:
+	get_parent_node_3d().add_child(menu)
+"
+
 [node name="Node3D" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -47,8 +62,12 @@ transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0,
 script = ExtResource("3_de6da")
 follow = NodePath("../Player")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
+[node name="CSGBox3D" type="CSGBox3D" parent="." node_paths=PackedStringArray("player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.505413, -6.27152)
+script = SubResource("GDScript_d1778")
+player = NodePath("../Player")
 
 [node name="InteractPrompt" type="Node3D" parent="CSGBox3D"]
 script = ExtResource("4_r2l1y")
+
+[connection signal="interact" from="CSGBox3D/InteractPrompt" to="CSGBox3D" method="_on_interact_prompt_interact"]

@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://le400gmmnfkx"]
+
+[ext_resource type="Script" path="res://src/menus/customize_player_menu.gd" id="1_dsbvk"]
+[ext_resource type="FontFile" uid="uid://c4ugwml6fcdc3" path="res://assets/fonts/COMICORO.TTF" id="1_pyguw"]
+
+[sub_resource type="Theme" id="Theme_a6ape"]
+default_font = ExtResource("1_pyguw")
+default_font_size = 32
+
+[node name="CustomizePlayerMenu" type="Node2D"]
+script = ExtResource("1_dsbvk")
+
+[node name="MainColor" type="ColorPickerButton" parent="."]
+offset_left = 733.0
+offset_top = 24.0
+offset_right = 936.0
+offset_bottom = 350.0
+theme = SubResource("Theme_a6ape")
+text = "HAIIIIHAIHAII"
+color = Color(0.332765, 0.449888, 0.636965, 1)
+edit_alpha = false
+
+[node name="FaceColor" type="ColorPickerButton" parent="."]
+offset_left = 734.0
+offset_top = 366.0
+offset_right = 937.0
+offset_bottom = 692.0
+theme = SubResource("Theme_a6ape")
+text = "HAIIIIHAIHAII"
+color = Color(0.745352, 0.810071, 0.912233, 1)
+edit_alpha = false
+
+[connection signal="color_changed" from="MainColor" to="." method="_on_main_color_color_changed"]
+[connection signal="color_changed" from="FaceColor" to="." method="_on_face_color_color_changed"]
