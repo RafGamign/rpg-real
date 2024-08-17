@@ -15,7 +15,7 @@ var lock:Dictionary = {
 
 func _process(delta: float) -> void:
 	if not lock.enabled:
-		position = lerp(position, follow.position + follow.velocity*delta*16 + position_offset, lerp_value * 60 * delta)
+		position = lerp(position, follow.position + follow.velocity*Vector3(1,0,1)*delta*16 + position_offset, lerp_value * 60 * delta)
 		rotation = lerp(rotation, rotation_offset, lerp_value * 60 * delta)
 	else:
 		position = lerp(position, lock.position, lerp_value * 60 * delta)
